@@ -12,7 +12,7 @@ class Student extends Model
     }
 
     public function studentcourses(){
-        // a student follows many courses
+        // a student follows many student courses
         return $this->hasMany("App/StudentCourse");
     }
 }

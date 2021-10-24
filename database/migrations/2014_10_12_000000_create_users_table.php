@@ -19,11 +19,25 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger("active");
-            $table->tinyInteger("admin");
+            $table->tinyInteger("active")->default(true);
+            $table->tinyInteger("admin")->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // user data
+        DB::table('users')->insert(
+            [
+                [
+                    'name' => 'tim grevendonk',
+                    'email' => 'tim.grevendonk@hotmail.com',
+                    'admin' => true,
+                    'password' => Hash::make('admin1234'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ]
+            ]
+        );
     }
 
     /**
