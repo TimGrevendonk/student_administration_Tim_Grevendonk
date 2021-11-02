@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/index');
 });
+Route::get('courses', 'CourseController@index');
+Route::get('courses/{id}', 'CourseController@show');

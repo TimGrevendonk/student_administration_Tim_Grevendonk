@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{mix("css/app.css")}}" />
+    @yield("ccs_after")
     <title>@yield('title', 'student administration')</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
 
 
 <script src="{{ mix('js/app.js') }}"></script>
+@yield("script_after")
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>--}}
 </body>
