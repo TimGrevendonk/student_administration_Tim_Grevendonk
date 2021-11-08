@@ -26,7 +26,7 @@
     <div class="alert alert-danger alert-dismissible fade show">
         Can't find any course with <b>'{{ request()->course }}'</b>
         @if ( request()->programme_id != "%" )
-            for this genre <b>'{{ request()->programme_id }}'</b>
+            for this genre <b>'{{ $order[request()->programme_id-1]->name }}'</b>
         @endif
         <button type="button" class="close" data-dismiss="alert">
             <span>&times;</span>

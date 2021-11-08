@@ -26,6 +26,7 @@ class CourseController extends Controller
             ->get()
             ->makeHidden(["created_at", "updated_at"]);
 
+        $order = programme::orderBy('id')->get();
         $programmes = programme::orderBy('name')
             ->has('courses')
             ->withcount('courses')
@@ -39,7 +40,7 @@ class CourseController extends Controller
             $course->programme->name = strtoupper($course->programme->name);
         }
 
-        $result = compact('courses', 'programmes');
+        $result = compact('courses', 'programmes', 'order');
         Json::dump($result);
         return view("courses.index", $result);
     }
