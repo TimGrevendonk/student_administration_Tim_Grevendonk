@@ -13,16 +13,19 @@
     <div class="row">
 {{--        go through each genre connected with the programmes--}}
         @foreach($courses as $course)
-            <div class="col-sm-6 col-md-4 mb-3 d-flex align-content-stretch">
+            <div class="col-sm-6 col-md-4 mb-3 d-flex">
                 <div class="card flex-grow-1 d-flex">
                     <div class="card-body">
                         <h5 class="card-title">{{ $course->name }}</h5>
                         <p class="card-text">{{ $course->description }}</p>
                         <a href="{{ $course->programme->name }}">{{ $course->programme->name }}</a>
                     </div>
+                    @auth
                     <div class="card-footer d-flex justify-content-between">
-                        <a href="courses/{{ $course->id }}" class="btn btn-primary btn-sm btn-block text-white">Manage students</a>
+                        <a href="courses/{{ $course->id }}"
+                           class="btn btn-primary btn-sm btn-block text-white">Manage students</a>
                     </div>
+                    @endauth
                 </div>
             </div>
         @endforeach
